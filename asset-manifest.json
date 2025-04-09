@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/projeto-ar-condicionado/static/css/main.9516ec7c.css",
-    "main.js": "/projeto-ar-condicionado/static/js/main.3f80f4dd.js",
+    "main.js": "/projeto-ar-condicionado/static/js/main.c9bc9e61.js",
     "index.html": "/projeto-ar-condicionado/index.html",
     "main.9516ec7c.css.map": "/projeto-ar-condicionado/static/css/main.9516ec7c.css.map",
-    "main.3f80f4dd.js.map": "/projeto-ar-condicionado/static/js/main.3f80f4dd.js.map"
+    "main.c9bc9e61.js.map": "/projeto-ar-condicionado/static/js/main.c9bc9e61.js.map"
   },
   "entrypoints": [
     "static/css/main.9516ec7c.css",
-    "static/js/main.3f80f4dd.js"
+    "static/js/main.c9bc9e61.js"
   ]
 }
