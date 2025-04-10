@@ -1,26 +1,71 @@
 import React, { useState } from 'react';
+import { artigos } from '../utils/blogData';
+import './PaginaFaq.css';
 
 function PaginaFaq() {
   const [pergunta, setPergunta] = useState('');
   const [resposta, setResposta] = useState('');
+  const [sugestoes, setSugestoes] = useState([]);
 
   const lidarComPergunta = () => {
-    // Aqui você implementará a lógica para enviar a pergunta para a IA
-    // e receber a resposta. Por enquanto, vamos exibir uma resposta fixa.
-    setResposta('Esta é uma resposta de exemplo da IA.');
+    const perguntaLower = pergunta.toLowerCase();
+
+    const artigoEncontrado = artigos.find((artigo) =>
+      artigo.palavrasChave.some((palavra) =>
+        perguntaLower.includes(palavra.toLowerCase())
+      )
+    );
+
+    if (artigoEncontrado) {
+      setResposta(artigoEncontrado.resumo);
+    } else {
+      setResposta('Desculpe, não encontrei uma resposta para essa pergunta.');
+    }
+  };
+
+  const gerarSugestoes = (texto) => {
+    const textoLower = texto.toLowerCase();
+    const filtrados = artigos.filter((artigo) =>
+      artigo.palavrasChave.some((palavra) =>
+        palavra.toLowerCase().includes(textoLower)
+      )
+    );
+    setSugestoes(filtrados);
   };
 
   return (
-    <div>
-      <h1>FAQ com IA</h1>
+    <div className="faq-container">
+      <h1>FAQ Inteligente</h1>
+
       <input
         type="text"
         value={pergunta}
-        onChange={(e) => setPergunta(e.target.value)}
-        placeholder="Digite sua pergunta..."
+        onChange={(e) => {
+          setPergunta(e.target.value);
+          gerarSugestoes(e.target.value);
+        }}
+        placeholder="Digite sua dúvida sobre ar-condicionado..."
       />
-      <button onClick={lidarComPergunta}>Enviar</button>
-      <p>Resposta: {resposta}</p>
+      <button onClick={lidarComPergunta}>Perguntar</button>
+
+      {sugestoes.length > 0 && (
+        <ul className="sugestoes-lista">
+          {sugestoes.map((sugestao) => (
+            <li
+              key={sugestao.id}
+              onClick={() => {
+                setPergunta(sugestao.titulo);
+                setResposta(sugestao.resumo);
+                setSugestoes([]);
+              }}
+            >
+              {sugestao.titulo}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {resposta && <div className="resposta-box">{resposta}</div>}
     </div>
   );
 }

@@ -1,0 +1,47 @@
+.faq-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .sugestoes-lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .sugestoes-lista li {
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .sugestoes-lista li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  button {
+    margin-top: 0.5rem;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .resposta-box {
+    margin-top: 1rem;
+    background: #f4f4f4;
+    padding: 1rem;
+    border-radius: 6px;
+    font-size: 1.1rem;
+  }
+  

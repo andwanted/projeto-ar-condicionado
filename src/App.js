@@ -1,22 +1,27 @@
+// src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Importe Routes
-import Home from './pages/Home';
-import PaginaFaq from './pages/PaginaFaq';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import MenuNavegacao from './components/MenuNavegacao';
 import PaginaCalculadora from './pages/PaginaCalculadora';
-import CalculadoraFormulario from './CalculadoraFormulario'; // Importe o componente
-import './App.css';
-
-
+import PaginaFaq from './pages/PaginaFaq';
+import Home from './pages/Home';
+import BlogHome from './blog/BlogHome';
+import BlogPost from './blog/BlogPost';
+import InstalacaoChecklist from './pages/InstalacaoChecklist'; // <== nova importação
 
 function App() {
   return (
     <Router>
-      <div className="App">
+      <MenuNavegacao />
+      <div style={{ paddingTop: '80px' }}>
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/pagina1" element={<PaginaFaq />} />
-          <Route path="/pagina2" element={<PaginaCalculadora />} />
-          <Route path="/calculadora" element={<CalculadoraFormulario />} /> {/* Adicione a rota */}
+          <Route path="/" element={<Home />} />
+          <Route path="/calculadora" element={<PaginaCalculadora />} />
+          <Route path="/faq" element={<PaginaFaq />} />
+          <Route path="/blog" element={<BlogHome />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
+          <Route path="/checklist" element={<InstalacaoChecklist />} /> {/* nova rota */}
         </Routes>
       </div>
     </Router>

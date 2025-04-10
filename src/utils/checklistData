@@ -1,0 +1,32 @@
+// src/utils/checklistData.js
+export const checklists = {
+  novo: [
+    {
+      titulo: "Escolher o local de instalação",
+      descricao: "Verifique se o local possui circulação de ar adequada e espaço para manutenção.",
+      imagem: "/imagens/local-instalacao.jpg"
+    },
+    {
+      titulo: "Fixar suporte da unidade interna",
+      descricao: "Utilize o nível para garantir alinhamento. Parafuse firmemente na parede.",
+      imagem: "/imagens/suporte-interno.jpg"
+    },
+    // ...
+  ],
+  reinstalar: [
+    {
+      titulo: "Verifique os suportes antigos",
+      descricao: "Se os suportes antigos ainda servem, valide o alinhamento e firmeza.",
+      imagem: "/imagens/verificar-suporte.jpg"
+    },
+    // ...
+  ],
+  retirarEInstalar: [
+    {
+      titulo: "Desinstalar unidade externa",
+      descricao: "Desconecte com cuidado os tubos e o fio de alimentação. Verifique se há pressão no sistema.",
+      imagem: "/imagens/desinstalacao.jpg"
+    },
+    // ...
+  ]
+};
