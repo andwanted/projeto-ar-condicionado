@@ -1,21 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { artigos } from '../utils/blogData';
 
 function BlogHome() {
   return (
-    <div style={{ padding: '2rem' }}>
-      <h1>Blog do Ar-Condicionado</h1>
-      <ul>
-        {artigos.map((artigo) => (
-          <li key={artigo.id}>
-            <h2>
-              <Link to={`/blog/${artigo.id}`}>{artigo.titulo}</Link>
-            </h2>
-            <p>{artigo.resumo}</p>
-          </li>
-        ))}
-      </ul>
+    <div className="conteudo-principal">
+      <div className="quadro-interno">
+        <h1>Blog sobre Climatização</h1>
+        <p>Aqui serão listados os artigos ou vídeos com dicas e informações.</p>
+      </div>
     </div>
   );
 }

@@ -1,6 +1,35 @@
-.App {
-  text-align: center;
-  font-family: sans-serif;
+/* src/App.css */
+
+/* Container geral do app: Menu à esquerda + conteúdo à direita */
+.app-container {
+  display: flex; /* ⬅️ Faz o menu e o conteúdo ficarem lado a lado */
+  min-height: 100vh;
+  background-color: #f8f8f8; /* Cor de fundo geral */
 }
 
-/* Adicione seus estilos aqui */
+/* Conteúdo principal à direita do menu */
+.conteudo-principal {
+  flex: 1; /* ⬅️ Ocupa o espaço restante ao lado do menu */
+  padding: 2rem; /* Espaço interno */
+  overflow-y: auto;
+}
+
+/* RESPONSIVO - Menu lateral desaparece em telas pequenas */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .conteudo-principal {
+    padding: 1rem;
+  }
+}
+/* Para ajustar a largura ou espaçamento */
+.pro-sidebar {
+  min-height: 100vh;
+}
+
+/* Espaçamento nos itens de título e descrição */
+.pro-sidebar .menuitem {
+  padding: 10px;
+}

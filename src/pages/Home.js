@@ -1,19 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 function Home() {
   return (
-    <div>
-      <h1>Bem-vindo à minha aplicação!</h1>
-      <p>Selecione uma das páginas abaixo:</p>
-      <ul>
-        <li>
-          <Link to="/pagina1">Página 1 (FAQ)</Link>
-        </li>
-        <li>
-          <Link to="/pagina2">Página 2 (Calculadora)</Link>
-        </li>
-      </ul>
+    <div className="conteudo-principal">
+      <div className="quadro-interno">
+        <h1>Bem-vindo ao Portal do Ar-Condicionado</h1>
+        <p>Explore ferramentas, simuladores e dicas para instalações de qualidade.</p>
+      </div>
     </div>
   );
 }

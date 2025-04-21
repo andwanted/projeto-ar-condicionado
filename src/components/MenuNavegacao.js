@@ -1,12 +1,15 @@
-// src/components/MenuNavegacao.js
 import React from 'react';
-import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
+import { ProSidebar, Menu, MenuItem } from 'react-pro-sidebar';
+import { Link, useLocation } from 'react-router-dom';
 import 'react-pro-sidebar/dist/css/styles.css';
-import { Link } from 'react-router-dom';
+import './MenuNavegacao.css'; // criaremos esse arquivo já já
 
 function MenuNavegacao() {
+  const location = useLocation();
+  const isHome = location.pathname === '/';
+
   return (
-    <Sidebar>
+    <ProSidebar className={isHome ? 'menu-claro' : 'menu-escuro'}>
       <Menu iconShape="square">
         <MenuItem>
           <Link to="/">Início</Link>
@@ -24,7 +27,7 @@ function MenuNavegacao() {
           <Link to="/blog">Blog</Link>
         </MenuItem>
       </Menu>
-    </Sidebar>
+    </ProSidebar>
   );
 }
 

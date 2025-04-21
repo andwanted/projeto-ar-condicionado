@@ -1,6 +1,9 @@
 // src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// src/App.js
+import './styles/tema.css'; // <== importa o tema global
 import MenuNavegacao from './components/MenuNavegacao';
 import PaginaCalculadora from './pages/PaginaCalculadora';
 import PaginaFaq from './pages/PaginaFaq';
@@ -9,12 +12,16 @@ import BlogHome from './blog/BlogHome';
 import BlogPost from './blog/BlogPost';
 import InstalacaoChecklist from './pages/InstalacaoChecklist';
 
+import './App.css'; // ⬅️ Arquivo onde vamos colocar estilos base
+
 function App() {
   return (
     <Router>
-      <div style={{ display: 'flex' }}>
-        <MenuNavegacao />
-        <div style={{ flex: 1, padding: '20px' }}>
+      <div className="app-container"> {/* ⬅️ Wrapper com flex para dividir menu/conteúdo */}
+        <MenuNavegacao /> {/* ⬅️ Menu lateral fixo */}
+        
+        <main className="conteudo-principal"> {/* ⬅️ Área de conteúdo das páginas */}
+        <div style={{ paddingTop: '80px', marginLeft: '250px' }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/calculadora" element={<PaginaCalculadora />} />
@@ -23,7 +30,8 @@ function App() {
             <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/checklist" element={<InstalacaoChecklist />} />
           </Routes>
-        </div>
+          </div>
+        </main>
       </div>
     </Router>
   );

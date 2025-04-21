@@ -1,0 +1,55 @@
+/* src/styles/tema.css */
+
+/* Cores principais */
+:root {
+    --cinza-escuro: #2D2D2D;
+    --cinza-claro: #f5f5f5;
+    --cinza-meio: #444;
+    --branco: #ffffff;
+    --texto-claro: #e0e0e0;
+    --texto-escuro: #222;
+  }
+  
+  /* Estilo base da página */
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--cinza-escuro);
+    color: var(--texto-claro);
+  }
+  
+  /* Conteúdo principal */
+  .conteudo-principal {
+    padding: 2rem;
+    background-color: var(--cinza-claro); /* quadro claro */
+    min-height: 100vh;
+  }
+  
+  /* Quadros internos */
+  .quadro-interno {
+    background-color: var(--cinza-escuro); /* conteúdo escuro */
+    padding: 1.5rem;
+    border-radius: 8px;
+    color: var(--texto-claro);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+  
+  /* Títulos */
+  h1, h2, h3 {
+    color: var(--texto-escuro);
+  }
+  
+  /* Botões */
+  button {
+    background-color: var(--cinza-meio);
+    color: var(--texto-claro);
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  button:hover {
+    background-color: #555;
+  }
+  

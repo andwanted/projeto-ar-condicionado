@@ -1,3 +1,4 @@
+// src/pages/PaginaFaq.js
 import React, { useState } from 'react';
 import { artigos } from '../utils/blogData';
 import './PaginaFaq.css';
@@ -9,13 +10,11 @@ function PaginaFaq() {
 
   const lidarComPergunta = () => {
     const perguntaLower = pergunta.toLowerCase();
-
     const artigoEncontrado = artigos.find((artigo) =>
       artigo.palavrasChave.some((palavra) =>
         perguntaLower.includes(palavra.toLowerCase())
       )
     );
-
     if (artigoEncontrado) {
       setResposta(artigoEncontrado.resumo);
     } else {
@@ -34,38 +33,39 @@ function PaginaFaq() {
   };
 
   return (
-    <div className="faq-container">
-      <h1>FAQ Inteligente</h1>
+    <div className="conteudo-principal">
+      <div className="quadro-interno">
+        <h1>FAQ Inteligente</h1>
+        <input
+          type="text"
+          value={pergunta}
+          onChange={(e) => {
+            setPergunta(e.target.value);
+            gerarSugestoes(e.target.value);
+          }}
+          placeholder="Digite sua dúvida sobre ar-condicionado..."
+        />
+        <button onClick={lidarComPergunta}>Perguntar</button>
 
-      <input
-        type="text"
-        value={pergunta}
-        onChange={(e) => {
-          setPergunta(e.target.value);
-          gerarSugestoes(e.target.value);
-        }}
-        placeholder="Digite sua dúvida sobre ar-condicionado..."
-      />
-      <button onClick={lidarComPergunta}>Perguntar</button>
+        {sugestoes.length > 0 && (
+          <ul className="sugestoes-lista">
+            {sugestoes.map((sugestao) => (
+              <li
+                key={sugestao.id}
+                onClick={() => {
+                  setPergunta(sugestao.titulo);
+                  setResposta(sugestao.resumo);
+                  setSugestoes([]);
+                }}
+              >
+                {sugestao.titulo}
+              </li>
+            ))}
+          </ul>
+        )}
 
-      {sugestoes.length > 0 && (
-        <ul className="sugestoes-lista">
-          {sugestoes.map((sugestao) => (
-            <li
-              key={sugestao.id}
-              onClick={() => {
-                setPergunta(sugestao.titulo);
-                setResposta(sugestao.resumo);
-                setSugestoes([]);
-              }}
-            >
-              {sugestao.titulo}
-            </li>
-          ))}
-        </ul>
-      )}
-
-      {resposta && <div className="resposta-box">{resposta}</div>}
+        {resposta && <div className="resposta-box">{resposta}</div>}
+      </div>
     </div>
   );
 }
